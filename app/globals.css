@@ -1,0 +1,275 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Jive Color Palette: Navy Blue + Vibrant Orange */
+  --background: #ffffff;
+  --foreground: #141a46;
+  --card: #f8fafc;
+  --card-foreground: #141a46;
+  --popover: #ffffff;
+  --popover-foreground: #141a46;
+  
+  /* Primary: Deep Navy Blue */
+  --primary: #141a46;
+  --primary-foreground: #ffffff;
+  
+  /* Secondary: Vibrant Coral Orange */
+  --secondary: #ff9555;
+  --secondary-foreground: #ffffff;
+  
+  /* Accent: Peach Orange */
+  --accent: #ec8b5e;
+  --accent-foreground: #ffffff;
+  
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #f1f5f9;
+  --ring: #ff9555;
+  
+  /* Chart colors from palette */
+  --chart-1: #ff9555;
+  --chart-2: #ec8b5e;
+  --chart-3: #141a46;
+  --chart-4: #64748b;
+  --chart-5: #cbd5e1;
+  
+  --radius: 0.75rem;
+  
+  /* Sidebar theme */
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #141a46;
+  --sidebar-primary: #141a46;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ff9555;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #ff9555;
+}
+
+.dark {
+  /* Light-only design - no dark mode needed per requirements */
+  --background: #ffffff;
+  --foreground: #141a46;
+  --card: #f8fafc;
+  --card-foreground: #141a46;
+  --popover: #ffffff;
+  --popover-foreground: #141a46;
+  
+  --primary: #141a46;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #ff9555;
+  --secondary-foreground: #ffffff;
+  --accent: #ec8b5e;
+  --accent-foreground: #ffffff;
+  
+  --muted: #e2e8f0;
+  --muted-foreground: #64748b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #f1f5f9;
+  --ring: #ff9555;
+  
+  --chart-1: #ff9555;
+  --chart-2: #ec8b5e;
+  --chart-3: #141a46;
+  --chart-4: #64748b;
+  --chart-5: #cbd5e1;
+  
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #141a46;
+  --sidebar-primary: #141a46;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ff9555;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #ff9555;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-poppins: var(--font-poppins);
+  --font-mono: 'Menlo', 'Courier New', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth transitions for theme switching */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography scale */
+@layer base {
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold font-poppins tracking-tight;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold font-poppins tracking-tight;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold font-poppins;
+  }
+  h4 {
+    @apply text-xl md:text-2xl font-semibold font-poppins;
+  }
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
